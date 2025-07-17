@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug: show repo contents
+      - name: show repo contents
         run: ls -R
       
 
