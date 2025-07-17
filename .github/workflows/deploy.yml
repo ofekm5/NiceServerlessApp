@@ -11,11 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: show repo contents
-        run: ls -R
-      
+        uses: actions/checkout@v4     
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -33,6 +29,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ env.AWS_REGION }}
+          TF_VAR_aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+          TF_VAR_aws_region: ${{ env.AWS_REGION }}
 
       - name: Get Bucket Name from Terraform Output
         id: get_bucket
