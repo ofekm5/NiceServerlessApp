@@ -22,3 +22,9 @@ variable "aws_account_id" {
   default     = "123456789012"
 }
 
+variable "email" {
+  description = "The email address to subscribe to the SNS topic."
+  type        = string
+  default     = "markusofek@gmail.com"
+}
+
