@@ -13,7 +13,7 @@ variable "aws_region" {
 variable "sns_topic_name" {
   description = "The name of the sns topic"
   type        = string
-  default     = "lambda-topic"
+  default     = "lambda-notify-topic"
 }
 
 variable "aws_account_id" {
