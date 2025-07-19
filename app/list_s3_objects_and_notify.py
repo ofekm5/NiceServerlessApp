@@ -22,8 +22,10 @@ def lambda_handler(event, context):
             Subject="S3 Bucket Listing Lambda Execution"
         )
         return {
-            "statusCode": 200,
-            "body": json.dumps({"message": "Success", "details": message})
+            "success": True,
+            "bucket": s3_bucket,
+            "object_count": len(objects),
+            "objects": objects
         }
     except Exception as e:
         error_message = f"Error: {str(e)}"
@@ -33,6 +35,6 @@ def lambda_handler(event, context):
             Subject="S3 Bucket Listing Lambda Error"
         )
         return {
-            "statusCode": 500,
-            "body": json.dumps({"message": error_message})
+            "success": False,
+            "error": str(e)
         } 
