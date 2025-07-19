@@ -26,8 +26,10 @@ jobs:
 
       - name: Invoke Lambda and print output
         run: |
-         aws lambda invoke \
-          --function-name list-s3-and-notify \
-          --payload '{"test": "manual-trigger"}' \
-          --cli-binary-format raw-in-base64-out \
-          response.json
+          aws lambda invoke \
+            --function-name list-s3-and-notify \
+            --payload '{"test": "manual-trigger"}' \
+            --cli-binary-format raw-in-base64-out \
+            response.json
+          echo "Lambda output:"
+          cat response.json
