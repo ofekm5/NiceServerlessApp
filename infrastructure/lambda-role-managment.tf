@@ -38,7 +38,7 @@ resource "aws_iam_policy" "lambda_policy" {
         Action = [
           "sns:Publish"
         ],
-        Resource = "arn:aws:sns:${var.aws_region}:${var.aws_account_id}:${var.sns_topic_name}"
+        Resource = aws_sns_topic.lambda_notify_topic.arn
       },
       {
         Effect = "Allow",
