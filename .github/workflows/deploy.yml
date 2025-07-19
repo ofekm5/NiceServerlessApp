@@ -77,6 +77,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Validate Python syntax
+        run: |
+          python3 -m py_compile app/list_s3_objects_and_notify.py
+
       - name: Invoke Lambda and print output
         run: |
           aws lambda invoke \
