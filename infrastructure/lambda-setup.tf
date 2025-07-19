@@ -20,7 +20,7 @@ resource "aws_lambda_function" "list_s3_objects_and_notify" {
 resource "aws_lambda_permission" "allow_sns_invoke" {
   statement_id  = "AllowExecutionFromSNS"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.list_s3_objects_and_notify.lambda_handler
+  function_name = aws_lambda_function.list_s3_objects_and_notify.function_name
   principal     = "sns.amazonaws.com"
   source_arn    = aws_sns_topic.lambda_notify_topic.arn
 }
