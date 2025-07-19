@@ -7,7 +7,7 @@ sns_topic_arn = os.environ["SNS_TOPIC_ARN"]
 s3 = boto3.client("s3")
 sns = boto3.client("sns")
 
-def list_s3_objects_and_notify(event, context):
+def lambda_handler(event, context):
     try:
         response = s3.list_objects_v2(Bucket=s3_bucket)
         objects = [obj["Key"] for obj in response.get("Contents", [])]
